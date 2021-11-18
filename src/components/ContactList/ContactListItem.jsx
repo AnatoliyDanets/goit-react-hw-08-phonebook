@@ -3,24 +3,33 @@ import PropTypes from "prop-types";
 import s from "../ContactList/ContactList.module.css";
 import { deleteContact } from "../../redux/contacs/contacts-operations";
 import { useDispatch } from "react-redux";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function ContactListItem({ id, name, number }) {
   const dispatch = useDispatch();
 
   return (
     <li key={id} className={s.contact__item}>
-      <div>
+      <div className={s.contact__wrapper}>
         <span className={s.contact__text}>{name}: </span>
-        <span className={s.contact__text}>{number}</span>
+        <a className={s.contact__link} href={`tel:${number}`} aria-label="call">
+          <span className={s.contact__text}>{number}</span>
+        </a>
       </div>
-      <button
-        className={s.contact__btn}
+
+      <IconButton
+        aria-label="delete"
+        size="small"
         onClick={() => {
           dispatch(deleteContact(id));
         }}
       >
-        Delete
-      </button>
+        <DeleteIcon
+          fontSize="large"
+          sx={{ color: "#2196f3;", display: "flex" }}
+        />
+      </IconButton>
     </li>
   );
 }

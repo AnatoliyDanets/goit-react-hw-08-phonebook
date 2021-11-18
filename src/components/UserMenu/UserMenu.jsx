@@ -1,18 +1,25 @@
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+
 import { logOut } from "../../redux/auth/auth-operations";
-import { getUsername } from "../../redux/auth/auth-selectors";
+
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { IconButton } from "@mui/material";
+import s from "../UserMenu/UserMenu.module.css";
 
 export default function UserMenu() {
   const dispatch = useDispatch();
-  const name = useSelector(getUsername);
 
   return (
     <div>
-      <span style={{ color: "white" }}>Welcome, {name}</span>
-      <button type="button" onClick={() => dispatch(logOut())}>
-        Выйти
-      </button>
+      <IconButton
+        className={s.userExit__btn}
+        aria-label="delete"
+        size="small"
+        onClick={() => dispatch(logOut())}
+      >
+        <ExitToAppIcon className={s.userExit__icon} fontSize="small" />
+        <span className={s.userExit__text}>Exit</span>
+      </IconButton>
     </div>
   );
 }

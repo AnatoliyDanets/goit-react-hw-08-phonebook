@@ -1,0 +1,20 @@
+.userExit__btn {
+  display: flex;
+  align-items: center;
+  padding: 0px;
+}
+
+.userExit__btn:hover {
+  color: rgb(219, 223, 20);
+}
+.userExit__icon {
+  color: #fff;
+  display: flex;
+}
+.userExit__icon:hover {
+  color: rgb(219, 223, 20);
+}
+.userExit__text {
+  color: #fff;
+  margin-left: 5px;
+}

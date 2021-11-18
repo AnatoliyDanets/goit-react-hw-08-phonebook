@@ -10,15 +10,19 @@ import PublicRoute from "./components/PublicRoute";
 import { getAuthRefresh } from "./redux/auth/auth-selectors";
 import LoaderComponent from "./components/Loader/Loader";
 import { ToastContainer } from "react-toastify";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
 const HomePage = lazy(() =>
   import("./views/HomePage" /* webpackChunkName: "homePage" */)
 );
 const Register = lazy(() =>
-  import("./views/Register" /* webpackChunkName: "Register" */)
+  import("./views/RegisterPage/Register" /* webpackChunkName: "Register" */)
 );
 const Login = lazy(() =>
-  import("./views/Login" /* webpackChunkName: "NotFoundPage" */)
+  import("./views/LoginPage/Login" /* webpackChunkName: "NotFoundPage" */)
 );
 const Contacts = lazy(() =>
   import("./views/Contacts" /* webpackChunkName: "searcPage" */)

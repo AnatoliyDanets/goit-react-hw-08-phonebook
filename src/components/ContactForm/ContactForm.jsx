@@ -3,6 +3,10 @@ import s from "../ContactForm/ContactForm.module.css";
 import { addContact } from "../../redux/contacs/contacts-operations";
 import { useSelector, useDispatch } from "react-redux";
 import { getContacts } from "../../redux/contacs/contacts-selectors";
+import { Button, TextField } from "@mui/material";
+import { AccountCircle } from "@mui/icons-material";
+import { Box } from "@mui/system";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 
 export default function ContactForm() {
   const dispatch = useDispatch();
@@ -43,23 +47,48 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className={s.form}>
-      <label className={s.form__label}>
-        Name
-        <input
-          className={s.form__input}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <AccountCircle
+          sx={{ color: "action.active", mr: 1, my: 0.5, marginBottom: "10px" }}
+        />
+        <TextField
+          sx={{
+            marginTop: "0px",
+            marginBottom: "20px",
+          }}
+          id="input-with-sx"
+          label="Name"
+          variant="standard"
           type="text"
           name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-          required
           value={name}
+          required
           onChange={handleInput}
+          margin="normal"
         />
-      </label>
-      <label className={s.form__label}>
-        Number
-        <input
-          className={s.form__input}
+      </Box>
+
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <LocalPhoneIcon
+          sx={{ color: "action.active", mr: 1, my: 0.5, marginBottom: "10px" }}
+        />
+        <TextField
+          sx={{
+            marginTop: "0px",
+            marginBottom: "20px",
+          }}
+          id="input-with-sx"
+          label="Number"
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -67,11 +96,16 @@ export default function ContactForm() {
           required
           value={number}
           onChange={handleInput}
+          variant="standard"
+          margin="normal"
         />
-      </label>
-      <button className={s.form__btn} type="submit">
+      </Box>
+      <Button variant="contained" type="submit">
         Add Contact
-      </button>
+      </Button>
+      {/* <button className={s.form__btn} type="submit">
+        Add Contact
+      </button> */}
     </form>
   );
 }
