@@ -3,6 +3,7 @@ import s from "../RegisterPage/Register.module.css";
 import { useDispatch } from "react-redux";
 import { authUser } from "../../redux/auth/auth-operations";
 import { Button, TextField } from "@mui/material";
+import Section from "../../components/Section";
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -44,61 +45,63 @@ export default function Register() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={s.form}>
-      <TextField
-        sx={{
-          marginTop: "0px",
-          marginBottom: "20px",
-        }}
-        id="standard-login-input"
-        label="Login"
-        type="text"
-        name="name"
-        autoComplete="current-password"
-        variant="standard"
-        value={name}
-        onChange={handleInput}
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-        required
-        margin="normal"
-      />
-      <TextField
-        sx={{
-          marginTop: "0px",
-          marginBottom: "20px",
-        }}
-        id="standard-email-input"
-        label=" E-mail"
-        type="text"
-        name="email"
-        autoComplete="current-password"
-        variant="standard"
-        value={email}
-        onChange={handleInput}
-        required
-        margin="normal"
-      />
-      <TextField
-        sx={{
-          marginTop: "0px",
-          marginBottom: "20px",
-        }}
-        id="standard-password-input"
-        label="Password"
-        type="password"
-        name="password"
-        autoComplete="current-password"
-        variant="standard"
-        value={password}
-        onChange={handleInput}
-        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-        required
-        margin="normal"
-      />
-      <Button variant="contained" type="submit">
-        Registration
-      </Button>
-    </form>
+    <Section>
+      <form onSubmit={handleSubmit} className={s.form}>
+        <TextField
+          sx={{
+            marginTop: "0px",
+            marginBottom: "20px",
+          }}
+          id="standard-login-input"
+          label="Login"
+          type="text"
+          name="name"
+          autoComplete="current-password"
+          variant="standard"
+          value={name}
+          onChange={handleInput}
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+          required
+          margin="normal"
+        />
+        <TextField
+          sx={{
+            marginTop: "0px",
+            marginBottom: "20px",
+          }}
+          id="standard-email-input"
+          label=" E-mail"
+          type="text"
+          name="email"
+          autoComplete="current-password"
+          variant="standard"
+          value={email}
+          onChange={handleInput}
+          required
+          margin="normal"
+        />
+        <TextField
+          sx={{
+            marginTop: "0px",
+            marginBottom: "20px",
+          }}
+          id="standard-password-input"
+          label="Password"
+          type="password"
+          name="password"
+          autoComplete="current-password"
+          variant="standard"
+          value={password}
+          onChange={handleInput}
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          required
+          margin="normal"
+        />
+        <Button variant="contained" type="submit">
+          Sign In
+        </Button>
+      </form>
+    </Section>
   );
 }

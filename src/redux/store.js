@@ -12,7 +12,7 @@ import {
 } from "redux-persist";
 import contactsReducer from "./contacs/contacts-reducer";
 import authReducer from "./auth/auth-reducer";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 
 const authPersistConfig = {
   key: "auth",
@@ -29,7 +29,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(logger),
+    }),
   devTools: process.env.NODE_ENV === "development",
 });
 

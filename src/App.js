@@ -1,6 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Header from "./components/Header/Header";
+import Header from "./components/Header";
 import React, { Suspense, lazy, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCurrentUser } from "./redux/auth/auth-operations";
@@ -10,22 +10,18 @@ import PublicRoute from "./components/PublicRoute";
 import { getAuthRefresh } from "./redux/auth/auth-selectors";
 import LoaderComponent from "./components/Loader/Loader";
 import { ToastContainer } from "react-toastify";
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
 
 const HomePage = lazy(() =>
-  import("./views/HomePage" /* webpackChunkName: "homePage" */)
+  import("./views/HomePage/Home" /* webpackChunkName: "HomePage" */)
 );
 const Register = lazy(() =>
   import("./views/RegisterPage/Register" /* webpackChunkName: "Register" */)
 );
 const Login = lazy(() =>
-  import("./views/LoginPage/Login" /* webpackChunkName: "NotFoundPage" */)
+  import("./views/LoginPage/Login" /* webpackChunkName: "LoginPage" */)
 );
 const Contacts = lazy(() =>
-  import("./views/Contacts" /* webpackChunkName: "searcPage" */)
+  import("./views/ContactsPage/Contacts" /* webpackChunkName: "ContactsPage" */)
 );
 
 export default function App() {

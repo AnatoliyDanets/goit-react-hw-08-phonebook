@@ -3,7 +3,7 @@ import s from "../components/Navigation/Navigation.module.css";
 import { useSelector } from "react-redux";
 import { getAuth } from "../redux/auth/auth-selectors";
 
-export default function Home() {
+export default function NavBar() {
   const isAuth = useSelector(getAuth);
   return (
     <nav>

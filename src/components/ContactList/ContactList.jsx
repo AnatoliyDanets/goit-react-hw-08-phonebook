@@ -18,10 +18,10 @@ export default function ContactList() {
   return (
     <>
       <div style={{ height: "12px", marginBottom: "5px" }}>
-        <h2 className={s.hidden}>Loader</h2>
+        <h3 className={s.hidden}>Loader</h3>
         {loader && <LoaderComponent />}
       </div>
-
+      <h3 className={(s.title, s.hidden)}>List of contacts</h3>
       {contacts.length > 0 ? (
         <ul className={s.contact}>
           {contacts.map(({ id, name, number }) => (

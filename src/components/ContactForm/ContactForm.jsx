@@ -7,8 +7,9 @@ import { Button, TextField } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import { Box } from "@mui/system";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import { toast } from "react-toastify";
 
-export default function ContactForm() {
+export default function ContactForm({ onSave }) {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
   const [name, setName] = useState("");
@@ -33,8 +34,9 @@ export default function ContactForm() {
     contacts.find(
       (contact) => contact.name.toLowerCase() === name.toLowerCase()
     )
-      ? alert(` ${name} already in contacts`)
+      ? toast.error(` ${name} already in contacts`)
       : dispatch(addContact({ name, number }));
+    onSave();
     console.log(contacts);
 
     reset();

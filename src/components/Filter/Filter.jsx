@@ -9,13 +9,17 @@ export default function Filter() {
   const value = useSelector(getFilter);
   const dispatch = useDispatch();
   return (
-    <TextField
-      id="standard-search"
-      label=" Find contacts by name"
-      type="text"
-      value={value}
-      onChange={(e) => dispatch(filterList(e.currentTarget.value))}
-      variant="standard"
-    />
+    <>
+      <h3 className={(s.title, s.hidden)}>Find contact</h3>
+      <TextField
+        sx={{ marginBottom: "5px" }}
+        id="standard-search"
+        label=" Find contacts by name"
+        type="text"
+        value={value}
+        onChange={(e) => dispatch(filterList(e.currentTarget.value))}
+        variant="standard"
+      />
+    </>
   );
 }

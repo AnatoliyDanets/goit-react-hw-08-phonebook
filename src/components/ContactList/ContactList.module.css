@@ -11,6 +11,23 @@
   --primary-font: "Roboto", sans-serif;
   --second-font: "Raleway", sans-serif;
 }
+.title {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6 IE7 */
+  clip: rect(1px 1px 1px 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
 .contact {
   margin: 0;
   padding: 0;
@@ -62,15 +79,4 @@
 .contact__btn:focus {
   background-color: #188ce8;
   color: #fff;
-}
-.hidden {
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px); /* IE6 IE7 */
-  clip: rect(1px 1px 1px 1px);
-  padding: 0 !important;
-  border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
-  overflow: hidden;
-  font-size: 10px;
 }

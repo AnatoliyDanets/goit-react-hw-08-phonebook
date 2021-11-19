@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { loginUser } from "../../redux/auth/auth-operations";
 import s from "../LoginPage/Login.module.css";
 import { Button, TextField } from "@mui/material";
+import Section from "../../components/Section";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -37,43 +38,45 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={s.form}>
-      <TextField
-        sx={{
-          marginTop: "0px",
-          marginBottom: "20px",
-        }}
-        id="standard-email-input"
-        label=" E-mail"
-        type="text"
-        name="name"
-        autoComplete="current-password"
-        variant="standard"
-        value={email}
-        onChange={handleInput}
-        required
-        margin="normal"
-      />
-      <TextField
-        sx={{
-          marginTop: "0px",
-          marginBottom: "20px",
-        }}
-        id="standard-password-input"
-        label="Password"
-        type="password"
-        name="password"
-        autoComplete="current-password"
-        variant="standard"
-        value={password}
-        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-        onChange={handleInput}
-        required
-        margin="normal"
-      />
-      <Button variant="contained" type="submit">
-        LogIn
-      </Button>
-    </form>
+    <Section>
+      <form onSubmit={handleSubmit} className={s.form}>
+        <TextField
+          sx={{
+            marginTop: "0px",
+            marginBottom: "20px",
+          }}
+          id="standard-email-input"
+          label=" E-mail"
+          type="text"
+          name="name"
+          autoComplete="current-password"
+          variant="standard"
+          value={email}
+          onChange={handleInput}
+          required
+          margin="normal"
+        />
+        <TextField
+          sx={{
+            marginTop: "0px",
+            marginBottom: "20px",
+          }}
+          id="standard-password-input"
+          label="Password"
+          type="password"
+          name="password"
+          autoComplete="current-password"
+          variant="standard"
+          value={password}
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          onChange={handleInput}
+          required
+          margin="normal"
+        />
+        <Button variant="contained" type="submit">
+          Log In
+        </Button>
+      </form>
+    </Section>
   );
 }
