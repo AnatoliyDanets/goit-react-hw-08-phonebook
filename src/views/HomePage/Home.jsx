@@ -8,14 +8,12 @@ export default function Home() {
       <div className={s.home}>
         <div className={s.wrap}>
           <h1 className={s.title}>Phonebook</h1>
-          <div>
-            <p className={s.text}>
-              The phone book is your personal assistant. Add contacts of your
-              friends, family, colleagues to always be in touch with them
-            </p>
-          </div>
+          <p className={s.text}>
+            The phone book is your personal assistant. Add contacts of your
+            friends, family, colleagues to always be in touch with them
+          </p>
         </div>
-        <img className={s.img} src={phone} alt="" srcset="" />
+        <img className={s.img} src={phone} alt="phone" />
       </div>
     </Section>
   );

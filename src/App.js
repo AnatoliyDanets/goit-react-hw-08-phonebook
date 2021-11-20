@@ -10,10 +10,8 @@ import PublicRoute from "./components/PublicRoute";
 import { getAuthRefresh } from "./redux/auth/auth-selectors";
 import LoaderComponent from "./components/Loader/Loader";
 import { ToastContainer } from "react-toastify";
+import Home from "./views/HomePage/Home";
 
-const HomePage = lazy(() =>
-  import("./views/HomePage/Home" /* webpackChunkName: "HomePage" */)
-);
 const Register = lazy(() =>
   import("./views/RegisterPage/Register" /* webpackChunkName: "Register" */)
 );
@@ -36,7 +34,7 @@ export default function App() {
         <Header />
         <Suspense fallback={<LoaderComponent />}>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<Home />} />
             <Route
               path="/register"
               element={<PublicRoute children={<Register />} restricted />}
