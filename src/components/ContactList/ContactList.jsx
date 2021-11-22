@@ -24,9 +24,11 @@ export default function ContactList() {
       <h3 className={(s.title, s.hidden)}>List of contacts</h3>
       {contacts.length > 0 ? (
         <ul className={s.contact}>
-          {contacts.map(({ id, name, number }) => (
-            <ContactListItem key={id} id={id} name={name} number={number} />
-          ))}
+          {contacts
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map(({ id, name, number }) => (
+              <ContactListItem key={id} id={id} name={name} number={number} />
+            ))}
         </ul>
       ) : (
         <p>Not contacts</p>
