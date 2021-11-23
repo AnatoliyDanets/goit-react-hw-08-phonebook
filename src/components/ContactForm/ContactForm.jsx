@@ -31,14 +31,23 @@ export default function ContactForm({ onSave }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    contacts.find(
-      (contact) => contact.name.toLowerCase() === name.toLowerCase()
-    )
-      ? toast.error(` ${name} already in contacts`)
-      : dispatch(addContact({ name, number }));
-    onSave();
-    console.log(contacts);
+    if (
+      contacts.find(
+        (contact) => contact.name.toLowerCase() === name.toLowerCase()
+      )
+    ) {
+      toast.error(`${name} already in contacts`);
+    } else if (contacts.find((contact) => contact.number === number)) {
+      toast.error(
+        `This ${number} belongs to contact ${
+          contacts.find((contact) => contact.number === number).name
+        }`
+      );
+    } else {
+      dispatch(addContact({ name, number }));
+    }
 
+    onSave();
     reset();
   };
 
