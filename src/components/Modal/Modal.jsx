@@ -5,8 +5,10 @@ const modalRoot = document.querySelector("#modal-root");
 export default function Modal({ onClose, children }) {
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
+    console.log("effect");
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
+      console.log("uneffect");
     };
   });
   const handleKeyDown = (e) => {
